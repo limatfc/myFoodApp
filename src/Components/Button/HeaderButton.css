@@ -1,0 +1,23 @@
+.button-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  border: black;
+  background-color: brown;
+}
+
+.label--button {
+  color: white;
+}
+
+.items--button {
+  color: white;
+  font-size: large;
+}
+
+.button-header:hover {
+  background-color: slateblue;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+.meal-items {
+  font-size: 22px;
+  color: white;
+  background-color: tomato;
+  max-width: 80%;
+  box-sizing: border-box;
+  width: 80%;
+  box-shadow: 12px 12px 2px 1px lightsalmon;
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  width: 30%;
+  text-align: center;
+  align-self: center;
+}
+
+.description {
+  width: 50%;
+  text-align: center;
+  align-self: center;
+}
+
+.price {
+  width: 20%;
+  text-align: center;
+  align-self: center;
+}

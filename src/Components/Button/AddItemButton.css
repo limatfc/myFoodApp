@@ -1,0 +1,17 @@
+.button-add-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 50px;
+  border: black;
+  background-color: brown;
+  align-self: center;
+  color: white;
+  font-size: medium;
+}
+
+.button-add-item:hover {
+  background-color: slateblue;
+  cursor: pointer;
+}
