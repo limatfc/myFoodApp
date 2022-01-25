@@ -1,13 +1,9 @@
-.meal-items {
-  font-size: 22px;
-  color: white;
-  background-color: tomato;
-  max-width: 80%;
-  box-sizing: border-box;
-  width: 80%;
-  box-shadow: 12px 12px 2px 1px lightsalmon;
+.meals {
+  margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
 }
 
 .name {

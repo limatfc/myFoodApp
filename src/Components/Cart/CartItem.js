@@ -18,7 +18,7 @@ const CartItem = (props) => {
       <div className="cart-items-">
         <div className="ïtems-information">
           <p className="ïtem-name">{props.name}</p>
-          <p className="ïtem-price">{props.price}</p>
+          <p className="ïtem-price">{`$${props.price}`}</p>
           <p className="item-quantity">{props.quantity}</p>
         </div>
         <div className="cart-buttons">

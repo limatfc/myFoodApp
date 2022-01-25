@@ -1,51 +1,38 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import useHttp from "../../Hooks/use-http";
 import MealItems from "./MealItems";
 import "./Meals.css";
 
-const Meals = (props) => {
-  const Mock_meals = [
-    {
-      name: "Hot Dog Premium",
-      price: 115.65,
-      description:
-        "Three sausages, mashed potato, corn, peas, tomato, ketchup, mustard, mayo, tomato sauce",
-      id: 1,
-    },
-    {
-      name: "Barbacue Mix",
-      price: 140.87,
-      description:
-        "Includes salmon filet, chicken wings, picanha steak, rice, beans, french fries and salad ",
-      id: 2,
-    },
-    {
-      name: "House Hamburguer",
-      price: 98.54,
-      description:
-        "Two hamburguers, tomato, lettuce, egg, bacon, ham, cheese, corn",
-      id: 3,
-    },
-    {
-      name: "Golden Pizza",
-      price: 126.54,
-      description:
-        "Tomato sauce, bacon, ham, gorgonzola, boiled egg, olives, shrimp",
-      id: 4,
-    },
-  ];
+const Meals = () => {
+  const [mockMeals, setMockMeals] = useState([]);
+  const { isLoading, error, sendRequest: fetchMeals } = useHttp();
+
+  useEffect(() => {
+    const transformMeals = (mealsObj) => {
+      for (const mealItem in mealsObj) {
+        let data = mealsObj[mealItem].map((item) => {
+          return {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            description: item.description,
+          };
+        });
+        setMockMeals(data);
+      }
+    };
+
+    fetchMeals(
+      {
+        url: "https://orderfoodapp-be86f-default-rtdb.europe-west1.firebasedatabase.app/foodapp.json",
+      },
+      transformMeals
+    );
+  }, [fetchMeals]);
 
   return (
-    <div className="meals">
-      {Mock_meals.map((item) => (
-        <MealItems
-          name={item.name}
-          price={item.price}
-          description={item.description}
-          key={item.id}
-          id={item.id}
-        />
-      ))}
+    <div className="meal-items">
+      <MealItems mockMeals={mockMeals} isLoading={isLoading} error={error} />
     </div>
   );
 };
